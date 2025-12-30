@@ -33,7 +33,7 @@ class BilingualDataset(Dataset):
         src_text = src_target_pair['translation'][self.src_lang]
         tgt_text = src_target_pair['translation'][self.tgt_lang]
 
-        enc_input_tokens = self.tokenizer_src.encode(src_text).ids
+        enc_input_tokens = self.tokenizer_src.encode(src_text).ids # .ids gives an array of the input id's  
         dec_input_tokens = self.tokenizer_tgt.encode(tgt_text).ids
 
         enc_num_padding_tokens = self.seq_len - len(enc_input_tokens) - 2
